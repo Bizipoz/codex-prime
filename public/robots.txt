@@ -1,0 +1,12 @@
+# Opposition à l’exploration pour l’entraînement de modèles d’IA.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
