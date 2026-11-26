@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organisez vos patrons et suivez vos projets couture.">
+  <title>Point par point — Atelier couture</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <header class="masthead">
+    <div class="wrap top">
+      <a class="brand" href="#tableau"><span aria-hidden="true">✳</span> Point par point</a>
+      <nav aria-label="Navigation principale">
+        <a href="#tableau">Tableau de bord</a>
+        <a href="#patrons">Patrons</a>
+        <a href="#projets">Projets</a>
+        <a href="#activite">Activité</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="contenu" tabindex="-1">
+    <p id="storage-error" role="alert"></p>
+    <p id="message" role="status"></p>
+    <section id="tableau" aria-labelledby="dashboard-title">
+      <div class="heading">
+        <div><h1 id="dashboard-title">Mon atelier couture</h1><p>Retrouvez vos patrons, vos projets et vos séances de couture.</p></div>
+        <button data-action="new-pattern">Ajouter un patron</button>
+      </div>
+      <dl id="stats" class="stats"></dl>
+      <div class="panel">
+        <div class="section-bar"><h2>Projets en cours</h2><a href="#projets">Tous les projets</a></div>
+        <div id="active-projects"></div>
+      </div>
+    </section>
+    <section id="patrons" hidden aria-labelledby="patterns-title">
+      <div class="heading">
+        <div><h1 id="patterns-title">Bibliothèque de patrons</h1><p>Retrouvez les patrons que vous possédez.</p></div>
+        <button data-action="new-pattern">Ajouter un patron</button>
+      </div>
+      <div class="filters panel">
+        <label>Rechercher <input id="query" type="search" placeholder="Marque, modèle ou taille"></label>
+        <label>Univers <select id="universe"><option value="">Tous les univers</option></select></label>
+      </div>
+      <p id="pattern-count" role="status"></p>
+      <div id="pattern-list" class="cards"></div>
+    </section>
+    <section id="projets" hidden aria-labelledby="projects-title">
+      <div class="heading">
+        <div><h1 id="projects-title">Mes projets</h1><p>Suivez chaque réalisation, de la préparation aux finitions.</p></div>
+        <button data-action="new-project">Créer un projet</button>
+      </div>
+      <div id="project-list" class="cards"></div>
+    </section>
+    <section id="activite" hidden aria-labelledby="activity-title">
+      <div class="heading">
+        <div><h1 id="activity-title">Mon activité</h1><p>Gardez une trace de vos séances de couture.</p></div>
+        <button data-action="new-activity">Déclarer une activité</button>
+      </div>
+      <div class="panel">
+        <h2>Calendrier d’activité</h2>
+        <p id="calendar-summary"></p>
+        <div id="calendar" class="calendar" aria-hidden="true"></div>
+        <p class="legend">Chaque case représente un jour. Plus elle est foncée, plus le nombre d’activités est élevé.</p>
+      </div>
+      <div class="panel journal"><h2>Journal des activités</h2><div id="activity-list"></div></div>
+    </section>
+    <noscript><p>Activez JavaScript pour utiliser votre atelier couture.</p></noscript>
+  </main>
+  <footer class="wrap">Vos données sont enregistrées dans ce navigateur.</footer>
+  <dialog id="editor" aria-labelledby="editor-title">
+    <form id="edit-form">
+      <h2 id="editor-title"></h2>
+      <div id="fields"></div>
+      <p id="form-error" role="alert"></p>
+      <div class="actions"><button type="button" class="secondary" data-action="close">Fermer</button><button type="submit" id="save">Enregistrer</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
