@@ -157,9 +157,12 @@ function showView(moveFocus = false) {
 }
 
 function field(label, name, { value = '', type = 'text', choices, required = true, maxLength = 100 } = {}) {
-  const wrapper = element('label', label);
+  const wrapper = element('div');
+  const caption = element('label', label);
   const node = element(choices ? 'select' : type === 'textarea' ? 'textarea' : 'input');
   node.name = name;
+  node.id = 'field-' + name;
+  caption.htmlFor = node.id;
   node.required = required;
   if (choices) node.append(...choices.map(([id, text]) => new Option(text, id)));
   else if (type === 'textarea') node.rows = 4;
@@ -170,7 +173,7 @@ function field(label, name, { value = '', type = 'text', choices, required = tru
     node.addEventListener('input', () => node.setCustomValidity(''));
   }
   node.value = value;
-  wrapper.append(node);
+  wrapper.append(caption, node);
   fields.append(wrapper);
 }
 
