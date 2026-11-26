@@ -2,10 +2,6 @@
 
 Un espace pour gérer ses patrons, suivre ses projets et consigner ses séances. L’interface est en français et démarre avec une bibliothèque vide.
 
-## Lancer en local
-
-Depuis la racine du dépôt, lancez `python3 -m http.server 8000 --directory public`, puis ouvrez <http://localhost:8000>. Le serveur HTTP permet au navigateur de charger les modules JavaScript.
-
 ## Organisation des fichiers
 
 - `public/index.html` contient la structure des quatre vues et la boîte de dialogue des formulaires.
